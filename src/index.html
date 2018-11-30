@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <!-- <link rel="stylesheet" href="./bootstrap.css"> -->
+    <!-- <script src="vue.js"></script> -->
+    <!-- <script src="axios.js"></script> -->
+    <!-- <script src="./bower_components/qs/dist/qs.min.js"></script> -->
+    <!-- <script src="./node_modules/qs/dist/qs.js"></script> -->
+</head>
+
+<body style="height:1080px;">
+    <div id="app">
+        <a href="" @click.prevent="comName='login'">login</a>
+        <a href="" @click.prevent="comName='reg'">register</a>
+        <component :is="comName"></component><br><br><br>
+        <div class="form-inline">
+            <div class="form-group">
+                <label>id</label>
+                <input type="text" v-model="id" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>name</label>
+                <input type="text" v-model="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>age</label>
+                <input type="text" v-model="age" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="button" @click="add" class="btn btn-success" value="add">
+            </div>
+            <div class="form-group">
+                <input type="text" v-model="keyword" class="form-control">
+            </div>
+        </div>
+        <table class="table table-bordered">
+            <tr v-for="item in search(keyword)" :key="item.id">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td><a href="" @click.prevent="del(item.id)">删除</a></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>
